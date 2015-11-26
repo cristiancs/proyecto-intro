@@ -1,6 +1,8 @@
 api/v1/sensors/add (POST)
 	Agregamos sensor
 	{"name": "Piscina",
+	"unidad": "%",
+	"graficas": 0,
 	"token": "o12i3h9iocnqjsd"}
 api/v1/sensors/relate (POST)
 	Relacionamos
