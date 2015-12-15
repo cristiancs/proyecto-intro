@@ -19,10 +19,16 @@ from rest_framework import routers
 from django.contrib import admin
 from webmonitor import views
 
-
+#API REST
 router = routers.DefaultRouter()
+router.register(r'api/v1/relate', views.RelacionesViewSet,"sensor_id")
+
 router.register(r'api/v1/sensors/(?P<sensor_id>\d+)', views.RegistrosViewSet,"sensor_id")
 router.register(r'api/v1/sensors', views.RegistrosViewSet,"sensor_id")
+
+router.register(r'api/v1/relate', views.RelacionesViewSet,"sensor_id")
+
+router.register(r'api/v1/add', views.SensoresViewSet,"sensor_id")
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

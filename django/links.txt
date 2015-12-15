@@ -1,15 +1,18 @@
-api/v1/sensors/add (POST)
+api/v1/ADD/ (POST)
 	Agregamos sensor
-	{"name": "Piscina",
-	"unidad": "%",
-	"graficas": 0,
-	"token": "o12i3h9iocnqjsd"}
-api/v1/sensors/relate (POST)
+	{
+	"name": ""
+	"unidad": ""
+	"graficas": ""
+	"icon": ""
+	"actualizable": ""
+	"maxmin": ""
+	}
+api/v1/relate (POST)
 	Relacionamos
 	{
 		"id1": 2,
 		"id2": 23,
-		"token": "o12i3h9iocnqjsd"
 	}
 api/v1/sensors/:id (GET)
 	Retornamos última lectura

@@ -1,4 +1,4 @@
-from webmonitor.models import Registros
+from webmonitor.models import Registros,Relaciones,Sensores
 from webmonitor.serializers import *
 from django.http import HttpResponse
 from rest_framework import viewsets
@@ -13,19 +13,20 @@ def dashboard(request):
 	template = loader.get_template('webmonitor/dashboard.html')
 	return HttpResponse(template.render())
 
-class RegistrosList(generics.ListAPIView):
-	serializer_class = RegistrosSerializer
-	queryset = Registros.objects.all()
-	def get_queryset(self):
-		sensor_id = self.kwargs['sensor_id']
-		return Registros.objects.filter(sensor_id=sensor_id)
+
+class RelacionesViewSet (viewsets.ModelViewSet):
+	serializer_class = RelacionesSerializer
+	queryset = Relaciones.objects.all()
+
+class SensoresViewSet (viewsets.ModelViewSet):
+	serializer_class = SensoresSerializer
+	queryset = Sensores.objects.all()
+
 class RegistrosViewSet(viewsets.ModelViewSet):
 	"""
-	API endpoint that allows users to be viewed or edited.
+	Leer valores de sensores
 	"""
 	serializer_class = RegistrosSerializer
-	sensor_id = 2
-	# Registros.objects.all().order_by('-fecha')
 	def get_queryset(self):
 		kwargs = self.kwargs
 		if len(kwargs) > 0:
