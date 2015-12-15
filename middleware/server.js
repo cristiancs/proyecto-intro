@@ -5,11 +5,11 @@ var mysql  = require('mysql');
 
 // Configuración
 var config   = {}
-config.token = "9H1k2EHf1NNwMZ3uwx2sy7y1lK7jqy71";
+config.token = "ASD";
 config.mysql  = {
   host     : 'intro.cristiannavarrete.com',
   user     : 'root',
-  password : 'dmedel123',
+  password : 'ASD',
   database : 'intro'
 }
 

@@ -14,14 +14,24 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
+from rest_framework import routers
 from django.contrib import admin
 from webmonitor import views
+
+
+router = routers.DefaultRouter()
+router.register(r'api/v1/sensors/(?P<sensor_id>\d+)', views.RegistrosViewSet,"sensor_id")
+router.register(r'api/v1/sensors', views.RegistrosViewSet,"sensor_id")
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #Demo
     url(r'^$', views.index, name='index'),
     url(r'^dashboard\.html$', views.dashboard, name='dashboard'),
-    url(r'^dashboard$', views.index, name='index')
-    
+    url(r'^dashboard$', views.index, name='index'),
+
+    #API Rest
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
