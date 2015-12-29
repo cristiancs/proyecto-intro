@@ -26,10 +26,10 @@ class Sensores(models.Model):
 	id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=45)
 	unidad = models.CharField(max_length=4)
-	graficas = models.IntegerField(max_length=1)
+	graficas = models.IntegerField()
 	icon = models.CharField(max_length=40)
-	actualizable = models.IntegerField(max_length=1)
-	maxmin = models.IntegerField(max_length=1)
+	actualizable = models.IntegerField()
+	maxmin = models.IntegerField()
 	class Meta:
 		managed = False
 		db_table = 'sensores'

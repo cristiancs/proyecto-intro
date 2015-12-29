@@ -1,0 +1,19 @@
+{% for sensor in sensores %}
+	<div class="Mediciones-box">
+		<h3 class="Mediciones-title">
+			{{sensor.name}} 
+			{% if sensor.maxmin == 1 %}
+			<small class="Mediciones-extremos">Max: <span data-name="max-daily">{{sensor.max}}</span>°C Min: <span data-name="min-daily">{{sensor.min}}</span>°C</small>
+			{% endif %}
+		</h3>
+		<strong class="Mediciones-primaryValue" data-id="{{sensor.registros.0.3}}">
+			<i class="icon-{{sensor.registros.0.1}}"></i> 
+				<span>{{sensor.registros.0.0.valor}}</span> 
+			<small class="Mediciones-unidad">{{sensor.registros.0.2}}</small>
+		</strong>
+		{% if sensor.relacion %}
+			<span class="Mediciones-secundaryValue" data-id="{{sensor.id}}"><i class="icon-humedad"></i> <span data-name="humidity">{{sensor.registros.1.0.valor}}</span> <small class="Mediciones-unidad">{{sensor.registros.1.2}}</small></span>
+		{% endif %}
+	
+	</div>
+{% endfor %}

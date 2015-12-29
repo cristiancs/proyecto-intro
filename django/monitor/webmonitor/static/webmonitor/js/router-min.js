@@ -1,6 +1,6 @@
 page('/', index);
 page('/dashboard', dashboard);
-page('/monitor-air', air);
-page('/monitor-water', water);
+page('/graficas', graficas);
 page('*', notfound);
 page();
+

@@ -4,14 +4,22 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from django.template import RequestContext, loader
 from rest_framework import generics
-
+from django.core import serializers
+from logic import *
 # Create your views here.
 def index(request):
-	template = loader.get_template('webmonitor/index.html')
+	template = loader.get_template('webmonitor/index.html',)
 	return HttpResponse(template.render())
 def dashboard(request):
+	
+
+	# sensores = serializers.serialize( "python", Sensores.objects.all() )
+	sensores = Sensores.objects.all().values()
+	sensores = DashboardLogic();
+
+	sensores = list(sensores);
 	template = loader.get_template('webmonitor/dashboard.html')
-	return HttpResponse(template.render())
+	return HttpResponse(template.render(locals()))
 
 
 class RelacionesViewSet (viewsets.ModelViewSet):

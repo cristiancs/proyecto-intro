@@ -168,9 +168,9 @@
 /* line 31 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones-tipo{color:#fff;font-size:3em;margin:0 0 .3em 0;text-align:center}
 /* line 36 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones button.btn-update{font-size:55%;padding:.4rem;cursor:pointer;color:#fff;background:none;float:right;}
-/* line 43 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones button.btn-update:hover{color:#34495e}
+.Mediciones button.btn-update{font-size:45%;padding:1rem;cursor:pointer;color:#fff;background:#2c3e50;}
+/* line 42 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones button.btn-update:hover{background:#34495e}
 /* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 
 /* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */

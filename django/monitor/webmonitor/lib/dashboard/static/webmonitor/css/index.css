@@ -1,14 +1,14 @@
 
 /* line 43 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 
-/* line 1 : /Applications/CodeKit.app/Contents/Resources/engines/stylus/lib/functions/index.styl */
+/* line 1 : /Applications/CodeKit.app/Contents/Resources/engines/node_modules/stylus/lib/functions/index.styl */
 
 /* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones{text-align:center;}
 /* line 3 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-temperatura{font-size:4em}
+.Mediciones-primaryValue{font-size:4em}
 /* line 5 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-humedad{font-size:2em;margin-left:1em;below(420px)}
+.Mediciones-secundaryValue{font-size:2em;margin-left:1em;below(420px)}
 /* line 11 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones-box{background:#3598db;color:#fff;padding:.5em 1em;text-align:center;margin-bottom:1em;above(760px)}
 /* line 20 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */

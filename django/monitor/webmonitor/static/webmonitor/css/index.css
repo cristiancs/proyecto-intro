@@ -1,1 +1,23 @@
-body{background:#34495e}/*# sourceMappingURL=index.css.map */
+
+/* line 43 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+
+/* line 1 : /Applications/CodeKit.app/Contents/Resources/engines/node_modules/stylus/lib/functions/index.styl */
+
+/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones{text-align:center;}
+/* line 3 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-primaryValue{font-size:4em}
+/* line 5 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-secundaryValue{font-size:2em;margin-left:1em;below(420px)}
+/* line 11 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-box{background:#3598db;color:#fff;padding:.5em 1em;text-align:center;margin-bottom:1em;above(760px)}
+/* line 20 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-title{text-align:left;font-weight:bold;font-size:2em;margin:0;width:100%;}
+/* line 26 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-title small{font-size:40%;text-align:right;font-weight:300;margin-left:1em}
+/* line 31 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-tipo{color:#fff;font-size:3em;margin:0 0 .3em 0;text-align:center}
+/* line 36 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones button.btn-update{font-size:45%;padding:1rem;cursor:pointer;color:#fff;background:#2c3e50;}
+/* line 42 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones button.btn-update:hover{background:#34495e}

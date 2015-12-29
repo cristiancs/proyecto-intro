@@ -1,28 +1,24 @@
 <div id="dashboard">
 	<div class="Mediciones">
-		<h3 class="Mediciones-tipo">
-			Aire <button class="btn btn-update" data-action="update" data-type="aire"><i class="icon-refresh"></i></button>
-		</h3>
-		<div class="Mediciones-box" data-type="aire" data-title="interior">
-			<h3 class="Mediciones-title">Interior <small class="Mediciones-extremos">Max: <span data-name="max-daily">23</span>°C Min: <span data-name="min-daily">12</span>°C</small></h3>
-			<strong class="Mediciones-temperatura"><i class="icon-temperatura"></i> <span data-name="temperature">22</span> <small class="Mediciones-unidad">°C</small></strong>
-			<span class="Mediciones-humedad"><i class="icon-humedad"></i> <span data-name="humidity">50</span> <small class="Mediciones-unidad">%</small></span>
+		{% for sensor in sensores %}
+		<div class="Mediciones-box">
+			<h3 class="Mediciones-title">
+				{{sensor.name}} 
+				{% if sensor.maxmin == 1 %}
+				<small class="Mediciones-extremos">Max: <span data-name="max-daily">{{sensor.max}}</span>°C Min: <span data-name="min-daily">{{sensor.min}}</span>°C</small>
+				{% endif %}
+				<button class="btn btn-update" data-action="update" data-type="aire"><i class="icon-refresh"></i></button>
+			</h3>
+			<strong class="Mediciones-primaryValue" data-id="{{sensor.registros.0.3}}">
+				<i class="icon-{{sensor.registros.0.1}}"></i> 
+				<span>{{sensor.registros.0.0.valor}}</span> 
+				<small class="Mediciones-unidad">{{sensor.registros.0.2}}</small>
+			</strong>
+			{% if sensor.relacion %}
+			<span class="Mediciones-secundaryValue" data-id="{{sensor.id}}"><i class="icon-humedad"></i> <span data-name="humidity">{{sensor.registros.1.0.valor}}</span> <small class="Mediciones-unidad">{{sensor.registros.1.2}}</small></span>
+			{% endif %}
+
 		</div>
-		<div class="Mediciones-box" data-type="aire" data-title="exterior">
-			<h3 class="Mediciones-title">Exterior <small class="Mediciones-extremos">Max: <span data-name="max-daily">23</span>°C Min: <span data-name="min-daily">12</span>°C</small></h3>
-			<strong class="Mediciones-temperatura"><i class="icon-temperatura"></i> <span data-name="temperature">12</span> <small class="Mediciones-unidad">°C</small></strong>
-			<span class="Mediciones-humedad"><i class="icon-humedad"></i> <span data-name="humidity">90</span> <small class="Mediciones-unidad">%</small></span>
-		</div>
-		<h3 class="Mediciones-tipo">
-			Agua <button class="btn btn-update" data-action="update" data-type="agua"><i class="icon-refresh"></i></button>
-		</h3>
-		<div class="Mediciones-box" data-type="agua" data-title="piscina"> 
-			<h3 class="Mediciones-title">Piscina</h3>
-			<strong class="Mediciones-temperatura"><i class="icon-temperatura"></i> <span data-name="temperature">23</span> <small class="Mediciones-unidad">°C</small></strong>
-		</div>
-		<div class="Mediciones-box" data-type="agua" data-title="tinaja">
-			<h3 class="Mediciones-title">Tinaja</h3>
-			<strong class="Mediciones-temperatura"><i class="icon-temperatura"></i> <span data-name="temperature">12</span> <small class="Mediciones-unidad">°C</small></strong>
-		</div>
+		{% endfor %}
 	</div>
 </div>
