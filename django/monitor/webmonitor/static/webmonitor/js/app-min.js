@@ -940,109 +940,37 @@ function index(){
 
 function dashboard(){
 	 $('#content').load('dashboard.html',function(){
-	 	apiUpdateTemp('aire');
-	 	apiUpdateTemp('agua');
-	 	 $('.btn-update').click(apiUpdateTemp);
+		$('#btn-update').click(askUpdate);
 	 });
 }
 
-function air(){
-	 $('#menu li').removeClass('active');
-	 $('#menu li[data-action="aire"]').addClass('active');
-	 $('#content').load('air.html',function(){
-		apiUpdateTemp('aire');
-		$('.btn-update').click(apiUpdateTemp);
-
-		apiGetGraph(
-			{
-				'start': addDays(new Date(),-1),
-				'end': new Date(),
-				'type': 'aire',
-				'graphName': 'Diaria',
-				'of': ['temperatura','humedad']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-7),
-				'end': new Date(),
-				'type': 'aire',
-				'graphName': 'Semanal',
-				'of': ['temperatura','humedad']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-30),
-				'end': new Date(),
-				'type': 'aire',
-				'graphName': 'Mensual',
-				'of': ['temperatura','humedad']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-365),
-				'end': new Date(),
-				'type': 'aire',
-				'graphName': 'Anual',
-				'of': ['temperatura','humedad']
-			},
-			airGraph
-		 );
-	 });
-}
-
-function water(){
+function graficas(){
 	$('#menu li').removeClass('active');
-	 $('#menu li[data-action="agua"]').addClass('active');
-	 $('#content').load('water.html',function(){
-		apiUpdateTemp('water');
-		$('.btn-update').click(apiUpdateTemp);
-		apiGetGraph(
-			{
-				'start': addDays(new Date(),-1),
-				'end': new Date(),
-				'type': 'water',
-				'graphName': 'Diaria',
-				'of': ['temperatura']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-7),
-				'end': new Date(),
-				'type': 'water',
-				'graphName': 'Semanal',
-				'of': ['temperatura']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-30),
-				'end': new Date(),
-				'type': 'water',
-				'graphName': 'Mensual',
-				'of': ['temperatura']
-			},
-			airGraph
-		 );
-		 apiGetGraph(
-			{
-				'start': addDays(new Date(),-365),
-				'end': new Date(),
-				'type': 'water',
-				'graphName': 'Anual',
-				'of': ['temperatura']
-			},
-			airGraph
-		 );
-	 });
+	$('#menu li[data-action="graficas"]').addClass('active');
+	$('#content').load('graficas.html',function(){
+		$.each($('.Graficas-box'), function(index, val) {
+			id = $(val).attr('data-id')
+			generateGraph(id);
+		});
+
+	function generateGraph(id){
+		$.get('http://intro.cristiannavarrete.com:8000/api/v1/sensors/'+id+'/', function(data) {
+			console.log(data);
+			var grafica = new google.visualization.DataTable();
+			grafica.addColumn('datetime','Hora')
+			grafica.addColumn('number','Temperatura')
+
+			$.each(data, function(index, val) {
+				grafica.addRows([
+					[new Date(val.fecha),val.valor]
+				])
+			});
+			var chart = new google.visualization.LineChart(document.getElementById('graficas_'+id));
+			chart.draw(grafica, {width: 800, height: 240});
+		});
+	}
+		
+	});
 }
 
 // Jquery
@@ -1054,8 +982,7 @@ function water(){
 // Actions
 // @codekit-prepend "../../lib/js/index.js"
 // @codekit-prepend "../../lib/dashboard/index.js"
-// @codekit-prepend "../../lib/air/index.js"
-// @codekit-prepend "../../lib/water/index.js"
+// @codekit-prepend "../../lib/graficas/index.js"
 
 // Webapp Hacks
 window.addEventListener("load", function() { window. scrollTo(0, 0); });
@@ -1071,71 +998,41 @@ if (body.requestFullscreen) {
   body.msrequestFullscreen();
 }
 
-var socket = io('//temperatura.cristiannavarrete.com:3700');
+var socket = io('//intro.cristiannavarrete.com:3000');
 
-
-// External Functions
-function addDays(dateObj, numDays) {
-  return dateObj.setDate(dateObj.getDate() + numDays);
-}
 
 function notfound(){
 	console.log('No existe');
 }
 
-// Process Data
-function processUpdate(json,args){
-	console.log(json,args);
-	for (var k in json){
-			$container = $('[data-type="'+args.tipo+'"][data-title="'+k+'"]');
-			for (var k2 in json[k]){
-				$container.find('[data-name="'+k2+'"]').html(json[k][k2]);
-			}
-		}
-}
-function airGraph(json,args){
-	var chart,label,label2;
-	console.log(JSON.stringify(json.data));
-	var data = new google.visualization.DataTable(json.data);
-	var options = {
-		height: 500,
-	};
 
-	$Graph = $('[data-name="'+args.graphName+'"] [data-type="'+json.type+'"]')[0];
-	chart = new google.charts.Line($Graph);
-	chart.draw(data, options);    
- }
+// // API Data
+// function apiUpdateTemp(id){
+// 	console.log(tipo,$(this).attr('data-type'));
+// 	var args = {};
+// 	if(typeof tipo === "string"){
+// 		args.tipo = tipo;
+// 	}
+// 	else{
+// 		args.tipo = $(this).attr('data-type');
+// 	}
+// 	socket.emit('updateLast');
+// 	$.post('api/updateTemp', args, function(data) {
+// 		processUpdate(data,args);
+// 	});
+// }
 
-// API Data
-function apiUpdateTemp(tipo){
-	console.log(tipo,$(this).attr('data-type'));
-	var args = {};
-	if(typeof tipo === "string"){
-		args.tipo = tipo;
-	}
-	else{
-		args.tipo = $(this).attr('data-type');
-	}
-	socket.emit('updateLast');
-	$.post('api/updateTemp', args, function(data) {
-		processUpdate(data,args);
-	});
-}
-function apiGetGraph(args,callback){
-	for(var key in args.of){
-		$.post('api/getGraph', {of: args.of[key], args: args}, function(data) {
-			callback(data,args);
-		});
-	}
-	
-}
 // Socket Data
 // Actualizar el último registro de temperatura
-socket.on('updateData', function(datos){
-	console.log(datos);
-	var args = {};
-	args.type = datos.type;
-	processUpdate(datos.data,args);
+socket.on('update', function(datos){
+	$('[data-id="'+datos.id+'"]').find('span').html(datos.valor);
 });
 
+//Solicitar actualizar información al servidor
+function askUpdate(){
+	var ids = $(this).attr('data-id').split(',');
+	$.each(ids, function(index, val) {
+		 askUpdate(val);
+	});
+}
 

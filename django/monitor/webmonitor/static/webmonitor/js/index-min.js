@@ -3,3 +3,4 @@ function dashboard(){
 		$('#btn-update').click(askUpdate);
 	 });
 }
+

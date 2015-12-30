@@ -1,0 +1,11 @@
+<div id="graficas">
+	<div class="Graficas">
+		<h2>Gráficas</h2>
+		{% for sensor in sensores %}
+		<div class="Graficas-box" data-id="{{sensor.id}}">
+			<h3>{{sensor.name}}</h3>
+			<div id="graficas_{{sensor.id}}" id="chart_div" style="width: 100%;"></div>
+		</div>
+		{% endfor %}
+	</div>
+</div>

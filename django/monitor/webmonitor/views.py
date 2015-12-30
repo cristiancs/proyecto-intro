@@ -11,17 +11,18 @@ def index(request):
 	template = loader.get_template('webmonitor/index.html',)
 	return HttpResponse(template.render())
 def dashboard(request):
-	
-
-	# sensores = serializers.serialize( "python", Sensores.objects.all() )
-	sensores = Sensores.objects.all().values()
 	sensores = DashboardLogic();
 
 	sensores = list(sensores);
 	template = loader.get_template('webmonitor/dashboard.html')
 	return HttpResponse(template.render(locals()))
 
+def graficas(request):
+	sensores = GraficasLogic();
+	template = loader.get_template('webmonitor/graficas.html')
+	return HttpResponse(template.render(locals()))
 
+#API
 class RelacionesViewSet (viewsets.ModelViewSet):
 	serializer_class = RelacionesSerializer
 	queryset = Relaciones.objects.all()
@@ -31,9 +32,6 @@ class SensoresViewSet (viewsets.ModelViewSet):
 	queryset = Sensores.objects.all()
 
 class RegistrosViewSet(viewsets.ModelViewSet):
-	"""
-	Leer valores de sensores
-	"""
 	serializer_class = RegistrosSerializer
 	def get_queryset(self):
 		kwargs = self.kwargs

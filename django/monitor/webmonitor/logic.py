@@ -51,3 +51,7 @@ def DashboardLogic():
 		actualdata['max'] = maxima
 		actualdata['min'] = minima
 	return data
+
+def GraficasLogic():
+	sensores = Sensores.objects.filter(graficas=1).values()
+	return sensores

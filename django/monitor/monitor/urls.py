@@ -32,10 +32,13 @@ router.register(r'api/v1/add', views.SensoresViewSet,"sensor_id")
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #Demo
+
     url(r'^$', views.index, name='index'),
     url(r'^dashboard\.html$', views.dashboard, name='dashboard'),
     url(r'^dashboard$', views.index, name='index'),
+
+    url(r'^graficas\.html$', views.graficas, name='graficas'),
+    url(r'^graficas$', views.index, name='index'),
 
     #API Rest
     url(r'^', include(router.urls)),
