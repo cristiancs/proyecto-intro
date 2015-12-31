@@ -26,8 +26,13 @@ io.on('connection', function(socket){
 		if(data.token === config.token){
 			console.log("Token Aceptado, Registrando");
 			// Guardamos Datos
-			connection.query("INSERT INTO `intro`.`registros` (`sensor_id`, `valor`, `fecha`) VALUES ('"+data.id+"', '"+Number(data.value.toFixed(2))+"', '"+(new Date().toISOString().slice(0, 19).replace('T', ' '))+"')");
-			socket.emit('update',{id: data.id,valor: data.valor})
+			if(data.value == true){ data.value = 1;}
+			if(data.value == false){ data.value = 0;}
+			if(typeof data.value == "int"){
+				connection.query("INSERT INTO `intro`.`registros` (`sensor_id`, `valor`, `fecha`) VALUES ('"+data.id+"', '"+Number(data.value.toFixed(2))+"', '"+(new Date().toISOString().slice(0, 19).replace('T', ' '))+"')");
+				socket.emit('update',{id: data.id,valor: data.valor})
+			}
+			
 		}
 	});
 	socket.on('askUpdate',function(data){
