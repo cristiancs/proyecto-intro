@@ -48,8 +48,8 @@ def DashboardLogic():
 			else:
 				minima=minima[0]
 			# print maxima,minima
-		actualdata['max'] = maxima
-		actualdata['min'] = minima
+		actualdata['max'] = round(maxima,2)
+		actualdata['min'] = round(minima,2)
 	return data
 
 def GraficasLogic():
