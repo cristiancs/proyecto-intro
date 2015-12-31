@@ -954,7 +954,7 @@ function graficas(){
 		});
 
 	function generateGraph(id){
-		$.get('http://intro.cristiannavarrete.com:8000/api/v1/sensors/'+id+'/', function(data) {
+		$.get('http://intro.cristiannavarrete.com:8000/api/v1/registros/'+id+'/', function(data) {
 			console.log(data);
 			var grafica = new google.visualization.DataTable();
 			grafica.addColumn('datetime','Hora')
