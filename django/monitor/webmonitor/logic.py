@@ -42,14 +42,14 @@ def DashboardLogic():
 			if(maxima == None):
 				maxima = '-'
 			else:
-				maxima=maxima[0]
+				maxima=round(maxima[0],2)
 			if(minima == None):
 				minima = '-'
 			else:
-				minima=minima[0]
+				minima=round(minima[0],2)
 			# print maxima,minima
-		actualdata['max'] = round(maxima,2)
-		actualdata['min'] = round(minima,2)
+		actualdata['max'] = maxima
+		actualdata['min'] = minima
 	return data
 
 def GraficasLogic():
