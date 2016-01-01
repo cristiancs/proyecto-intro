@@ -38,12 +38,12 @@ def DashboardLogic():
 		if(sensor["maxmin"] == 1):
 			maxima = Registros.objects.filter(sensor_id=sensor['id'],fecha__startswith=datetime.date.today()).aggregate(Max('valor')).values()
 			minima = Registros.objects.filter(sensor_id=sensor['id'],fecha__startswith=datetime.date.today()).aggregate(Min('valor')).values()
-			# print maxima,minima
-			if(maxima == None):
+			print maxima,minima
+			if(maxima[0] == None):
 				maxima = '-'
 			else:
 				maxima=round(maxima[0],2)
-			if(minima == None):
+			if(minima[0] == None):
 				minima = '-'
 			else:
 				minima=round(minima[0],2)
