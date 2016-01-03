@@ -152,39 +152,25 @@
 /* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones{text-align:center;}
 /* line 3 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-primaryValue{font-size:4em}
-/* line 5 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-primaryValue{font-size:4em;padding-bottom:1em}
+/* line 6 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones-secundaryValue{font-size:2em;margin-left:1em;}@media only screen and (max-width:420px){
 /* line 144 : /usr/local/lib/node_modules/rupture/rupture/index.styl */
 .Mediciones-secundaryValue{display:block;margin:auto}}
-/* line 11 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-box{background:#3598db;color:#fff;padding:.5em 1em;text-align:center;margin-bottom:1em;}@media only screen and (min-width:760px){
+/* line 12 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-box{background:#3598db;color:#fff;padding:.5em 1em;text-align:center;position:relative;margin-bottom:1em;}@media only screen and (min-width:760px){
 /* line 144 : /usr/local/lib/node_modules/rupture/rupture/index.styl */
 .Mediciones-box{width:46%;display:inline-block}}
-/* line 20 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-title{text-align:left;font-weight:bold;font-size:2em;margin:0;width:100%;}
-/* line 26 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones-title small{font-size:40%;text-align:right;font-weight:300;margin-left:1em}
-/* line 31 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+/* line 22 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-title{text-align:left;font-weight:bold;font-size:2em;margin:0;width:100%}
+/* line 28 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones-extremos{font-size:80%;text-align:right;font-weight:300;margin-left:1em;display:block}
+/* line 34 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones-tipo{color:#fff;font-size:3em;margin:0 0 .3em 0;text-align:center}
-/* line 36 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-.Mediciones button.btn-update{font-size:55%;padding:.4rem;cursor:pointer;color:#fff;background:none;float:right;}
-/* line 43 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+/* line 39 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+.Mediciones button.btn-update{font-size:100%;padding:.4rem;cursor:pointer;color:#fff;background:none;float:right;position:absolute;bottom:5%;left:5%;}
+/* line 49 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones button.btn-update:hover{color:#34495e}
-/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
-
-/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-
-/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-
-/* line 2 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-.Graficas h2{color:#fff}
-/* line 4 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-.Graficas h3{color:#fff}
-/* line 6 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-.Graficas-box{background:#e67e22;padding:1em}
-/* line 9 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/air/index.styl */
-.Graficas-humedad,.Graficas-temperatura{display:inline-block;width:48%}
 /* line 8 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/css/app.styl */
 body{background:#34495e;font-size:16px;font-family:'Open Sans';margin-bottom:16rem;}@media only screen and (min-width:760px){
 /* line 144 : /usr/local/lib/node_modules/rupture/rupture/index.styl */
