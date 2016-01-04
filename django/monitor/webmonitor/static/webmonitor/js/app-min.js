@@ -966,7 +966,7 @@ function graficas(){
 				])
 			});
 			var chart = new google.visualization.LineChart(document.getElementById('graficas_'+id));
-			chart.draw(grafica, {width: 800, height: 240});
+			chart.draw(grafica);
 		});
 	}
 		

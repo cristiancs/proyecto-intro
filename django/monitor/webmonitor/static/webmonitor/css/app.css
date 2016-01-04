@@ -171,6 +171,20 @@
 .Mediciones button.btn-update{font-size:100%;padding:.4rem;cursor:pointer;color:#fff;background:none;float:right;position:absolute;bottom:5%;left:5%;}
 /* line 49 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
 .Mediciones button.btn-update:hover{color:#34495e}
+/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/dashboard/index.styl */
+
+/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+
+/* line 1 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+
+/* line 2 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+.Graficas h2{color:#fff}
+/* line 4 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+.Graficas-box{width:90%;margin:auto;background:#3598db;color:#fff;padding:.5em 1em;text-align:center;position:relative;margin-bottom:1em;}
+/* line 13 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+.Graficas-box > div{max-width:100%;overflow-y:scroll;}
+/* line 16 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/graficas/index.styl */
+.Graficas-box > div div[dir="ltr"]{margin:auto}
 /* line 8 : /Users/mhcristian/proyectos/proyecto-intro/django/monitor/webmonitor/lib/css/app.styl */
 body{background:#34495e;font-size:16px;font-family:'Open Sans';margin-bottom:16rem;}@media only screen and (min-width:760px){
 /* line 144 : /usr/local/lib/node_modules/rupture/rupture/index.styl */
