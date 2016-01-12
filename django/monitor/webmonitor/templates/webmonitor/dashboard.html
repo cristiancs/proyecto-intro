@@ -17,7 +17,7 @@
 			<span class="Mediciones-secundaryValue" data-id="{{sensor.registros.1.3}}"><i class="icon-humedad"></i> <span>{{sensor.registros.1.0.valor}}</span> <small class="Mediciones-unidad">{{sensor.registros.1.2}}</small></span>
 			{% endif %}
 			{% if sensor.actualizable == 1 %}
-			<button class="btn btn-update" data-action="update" data-id="{{sensor.registros.0.3}}{% if sensor.relacion %}{{sensor.registros.1.3}}{%endif%}"><i class="icon-refresh"></i></button>
+			<button class="btn btn-update" data-action="update" data-id="{{sensor.registros.0.3}}"><i class="icon-refresh"></i></button>
 			{% endif %}
 		</div>
 		{% endfor %}

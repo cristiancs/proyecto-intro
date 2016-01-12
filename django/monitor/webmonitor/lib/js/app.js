@@ -23,29 +23,12 @@ if (body.requestFullscreen) {
   body.msrequestFullscreen();
 }
 
-var socket = io('//intro.cristiannavarrete.com:3000');
+var socket = io('//temperatura.cristiannavarrete.com:3000');
 
 
 function notfound(){
 	console.log('No existe');
 }
-
-
-// // API Data
-// function apiUpdateTemp(id){
-// 	console.log(tipo,$(this).attr('data-type'));
-// 	var args = {};
-// 	if(typeof tipo === "string"){
-// 		args.tipo = tipo;
-// 	}
-// 	else{
-// 		args.tipo = $(this).attr('data-type');
-// 	}
-// 	socket.emit('updateLast');
-// 	$.post('api/updateTemp', args, function(data) {
-// 		processUpdate(data,args);
-// 	});
-// }
 
 // Socket Data
 // Actualizar el último registro de temperatura
@@ -54,9 +37,12 @@ socket.on('update', function(datos){
 });
 
 //Solicitar actualizar información al servidor
-function askUpdate(){
-	var ids = $(this).attr('data-id').split(',');
-	$.each(ids, function(index, val) {
-		 askUpdate(val);
-	});
+function askUpdate(event){
+	event.preventDefault();
+	var ids = $(this).attr('data-id');
+	//ids = ids.split(',');
+	console.log(ids);
+	//$.each(ids, function(index, val) {
+	 socket.emit('askUpdate');
+	//});
 }

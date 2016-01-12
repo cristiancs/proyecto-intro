@@ -21,22 +21,29 @@ connection.connect();
 io.on('connection', function(socket){
 	console.log("Conexión Recibida");
 	socket.on('register', function(data){
-		console.log("Solicitud de registro Recibida");
-		console.log(data);
+		// console.log("Solicitud de registro Recibida");
+		// console.log(data);
 		if(data.token === config.token){
-			console.log("Token Aceptado, Registrando");
+			// console.log("Token Aceptado");
 			// Guardamos Datos
-			if(data.value == true){ data.value = 1;}
-			if(data.value == false){ data.value = 0;}
-			if(typeof data.value == "int"){
-				connection.query("INSERT INTO `intro`.`registros` (`sensor_id`, `valor`, `fecha`) VALUES ('"+data.id+"', '"+Number(data.value.toFixed(2))+"', '"+(new Date().toISOString().slice(0, 19).replace('T', ' '))+"')");
+			valor = data.value;
+			if(valor == true){ valor = 1;}
+			else if(valor == false){ valor = 0;}
+			if(typeof valor == "string") {
+				valor = Number(valor);
+			}
+			console.log(typeof valor);
+			if(typeof valor == "int" || typeof valor == "number"){
+				// console.log("Guardamos")
+				connection.query("INSERT INTO `intro`.`registros` (`sensor_id`, `valor`, `fecha`) VALUES ('"+data.id+"', '"+valor+"', '"+(new Date().toISOString().slice(0, 19).replace('T', ' '))+"')");
 				socket.emit('update',{id: data.id,valor: data.valor})
 			}
 			
 		}
 	});
 	socket.on('askUpdate',function(data){
-		socket.emit('askUpdate',data);
+		console.log('askUpdate solicitado');
+		socket.emit('askUpdate');
 	})
 });
 server.listen(3000);
