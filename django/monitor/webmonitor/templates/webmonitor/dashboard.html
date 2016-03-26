@@ -19,6 +19,8 @@
 			{% if sensor.actualizable == 1 %}
 			<button class="btn btn-update" data-action="update" data-id="{{sensor.registros.0.3}}"><i class="icon-refresh"></i></button>
 			{% endif %}
+			<br>
+			<small>Última Actualización: <time>{{sensor.registros.0.0.fecha|date:"G:i:s d/m/y"}}</time></small>
 		</div>
 		{% endfor %}
 	</div>

@@ -8,18 +8,18 @@ function graficas(){
 		});
 
 	function generateGraph(id){
-		$.get('http://temperatura.cristiannavarrete.com:8000/api/v1/registros/'+id+'/', function(data) {
+		$.get('http://temperatura.cristiannavarrete.com:8000/api/v1/registros/'+id+'/?limit=500', function(data) {
 			console.log(data);
 			var grafica = new google.visualization.DataTable();
 			grafica.addColumn('datetime','Hora')
 			grafica.addColumn('number','Temperatura')
 
-			$.each(data, function(index, val) {
+			$.each(data.results, function(index, val) {
 				grafica.addRows([
 					[new Date(val.fecha),val.valor]
 				])
 			});
-			var chart = new google.visualization.LineChart(document.getElementById('graficas_'+id));
+			var chart = new google.visualization.AreaChart(document.getElementById('graficas_'+id));
 			chart.draw(grafica);
 		});
 	}

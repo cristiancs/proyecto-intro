@@ -34,6 +34,7 @@ function notfound(){
 // Actualizar el último registro de temperatura
 socket.on('update', function(datos){
 	$('[data-id="'+datos.id+'"]').find('span').html(datos.valor);
+	$('[data-id="'+datos.id+'"]').parent().find('time').html(moment().format('hh:mm:ss DD/MM/YY'));
 });
 
 //Solicitar actualizar información al servidor
